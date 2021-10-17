@@ -32,3 +32,5 @@ function largest_factor(number::Integer)
     maximum = Integer(largest_possible_factor(number))
     return first(x for x=reverse(3:2:maximum) if (is_multiple(number, x) && is_prime(x)))
 end
+
+largest_factor(600851475143)
