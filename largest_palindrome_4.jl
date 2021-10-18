@@ -1,7 +1,7 @@
 using Combinatorics
 
-function is_palindrome(x)
-    s = string(x)
+function is_palindrome(x::Integer)
+    s::String = string(x)
     for (a, b) in zip(s, reverse(s))
         if a != b
             return false
@@ -10,14 +10,14 @@ function is_palindrome(x)
     return true
 end
 
-function possible_operands(x)
+function possible_operands(x::Integer)
     return combinations(x:-1:1,2)
 end
 
 function largest_palindrome()
-    largest = -1
+    largest::Integer = -1
     for (op1, op2) in possible_operands(999)
-        prod = op1 * op2
+        prod::Integer = op1 * op2
         if is_palindrome(prod) && prod > largest
             largest = prod
         end
